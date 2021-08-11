@@ -9,9 +9,9 @@ using RestWithASPNET.Business;
 using RestWithASPNET.Business.Implementations;
 using System;
 using RestWithASPNET.Repository;
-using RestWithASPNET.Repository.Implementations;
 using Serilog;
 using System.Collections.Generic;
+using RestWithASPNET.Repository.Generic;
 
 namespace RestWithASPNET
 {
@@ -48,9 +48,9 @@ namespace RestWithASPNET
 
             //Dependency Injection
             services.AddScoped<IPersonBusiness, PersonBusinessImplementation>();
-            services.AddScoped<IPersonRepository, PersonRepositoryImplementation>();
             services.AddScoped<IBookBusiness, BookBusinessImplementation>();
-            services.AddScoped<IBookRepository, BookRepositoryImplementation>();
+            
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
 
 
