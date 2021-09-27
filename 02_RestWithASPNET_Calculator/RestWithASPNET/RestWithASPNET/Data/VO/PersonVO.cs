@@ -25,6 +25,9 @@ namespace RestWithASPNET.Data.VO
         //Custom Serialization
         //[JsonPropertyName("sex")]
         public string Gender { get; set; }
+
+        public bool Enabled { get; set; }
+
         public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }

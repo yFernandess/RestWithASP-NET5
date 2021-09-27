@@ -90,7 +90,7 @@ namespace RestWithASPNET
             services.AddControllers();
 
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
-            services.AddDbContext<MySQLContext>(options => options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0, 11))));
+            services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
 
             if (Environment.IsDevelopment())
             {
@@ -138,7 +138,8 @@ namespace RestWithASPNET
             services.AddTransient<ITokenService, TokenService>();
 
             services.AddScoped<IUserRepository, UserRepository>();
-            
+            services.AddScoped<IPersonRepository, PersonRepository>();
+
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
 
