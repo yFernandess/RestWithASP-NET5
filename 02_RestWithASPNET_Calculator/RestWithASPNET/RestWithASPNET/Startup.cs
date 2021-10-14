@@ -94,10 +94,10 @@ namespace RestWithASPNET
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
 
-            //if (Environment.IsDevelopment())
-            //{
-            //    MigrateDatabase(connection);
-            //}
+            if (Environment.IsDevelopment())
+            {
+               MigrateDatabase(connection);
+            }
 
             services.AddMvc(options =>
             {
@@ -121,9 +121,9 @@ namespace RestWithASPNET
                 c.SwaggerDoc("v1",
                     new OpenApiInfo
                     {
-                        Title = "REST API´s From 0 to Azure with ASP.NET Core 5 and Docker",
+                        Title = "REST APIï¿½s From 0 to Azure with ASP.NET Core 5 and Docker",
                         Version = "v1",
-                        Description = "API RESTful developed in course 'REST API´s From 0 to Azure with ASP.NET Core 5 and Docker'",
+                        Description = "API RESTful developed in course 'REST APIï¿½s From 0 to Azure with ASP.NET Core 5 and Docker'",
                         Contact = new OpenApiContact
                         {
                             Name = "Yuri Fernandes",
@@ -167,7 +167,7 @@ namespace RestWithASPNET
 
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json",
-                    "REST API´s From 0 to Azure with ASP.NET Core 5 and Docker - v1");
+                    "REST APIï¿½s From 0 to Azure with ASP.NET Core 5 and Docker - v1");
             });
 
             var option = new RewriteOptions();
